@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>CodeClan Library</title>
+</head>
+<body>
+    <h1>Welcome to the CodeClan Library:</h1>
+
+    <section id="display_all_books">
+        <a href="/full_book_list">Click here to see full list</a>
+    </section>
+
+    <h2>Our books:</h2>
+    {% for book in book_list %}
+    <div id="{{book.name}}" class="book_container">
+        <p>Name: {{ book.title }}</p>
+        <p>Author: {{book.author }}</p>
+        <p>Genre: {{book.genre}} </p>
+
+        <form class="form-inline" method="POST"></form>
+        
+        <section id="display_single_book">
+            <!-- connect index to correct file -->
+            <!-- corerct index needs to be index of book in book_list -->
+            <a href="/view_book/{{ loop.index0 }}">View Book</a>
+        </section>
+<!-- {{ loop.index }} -->
+        
+        <br>
+    </div>
+    {% endfor %}
+
+</body>
+</html>
